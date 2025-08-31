@@ -1,0 +1,51 @@
+/* Imports Tailwind's base, component, and utility styles using the new Vite plugin method.
+*/
+@import "tailwindcss";
+
+/* A @layer block allows us to add custom base styles.
+  Here, we set the project's primary background, default text color, and smooth fonts.
+*/
+@layer base {
+  body {
+    @apply bg-[#0D1117] text-slate-300 antialiased;
+  }
+}
+
+/* This pseudo-element creates the dynamic "cursor spotlight" effect.
+  It's a fixed radial gradient that follows CSS variables updated by our React component.
+*/
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: radial-gradient(
+    800px circle at var(--x) var(--y),
+    rgba(29, 78, 216, 0.08),
+    transparent 40%
+  );
+  pointer-events: none;
+}
+
+/* This is the @keyframes definition for our custom shimmer animation.
+  We are defining what the 'shimmer' animation does from start to finish.
+*/
+@keyframes shimmer {
+  "0%": {
+    transform: "translateX(-100%)";
+  }
+  "100%": {
+    transform: "translateX(100%)";
+  }
+}
+
+/* Here, we create our own utility class, `.animate-shimmer`.
+  This class applies the shimmer keyframes we defined above.
+  The JSX uses `className="... animate-shimmer"` to apply this effect.
+*/
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
