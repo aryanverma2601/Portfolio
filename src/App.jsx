@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import image from "./assets/Screenshot 2025-08-31 233755.png"; // Ensure the image is correctly imported
+import quickChatImage from "./assets/quickchat.png";
+import parkEaseImage from "./assets/parkease.png";
+import spamClassifierImage from "./assets/email-spam-classifier.png";
 import {
   FiGithub,
   FiLinkedin,
@@ -60,6 +63,9 @@ const roles = [
   "Problem Solver.",
 ];
 
+const gmailComposeLink =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=aryanv380@gmail.com&su=Portfolio%20Inquiry&body=Hi%20Aryan%2C%0A%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20connect.";
+
 const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentRoleText, setCurrentRoleText] = useState("");
@@ -111,7 +117,9 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <a
-              href="mailto:aryanv380@gmail.com"
+              href={gmailComposeLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center px-8 py-4 bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition-all duration-300 rounded-full font-medium transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25"
             >
               <span className="mr-2">Let's work together</span>
@@ -158,27 +166,59 @@ const Projects = ({ isVisible, setRef }) => {
       image: image,
     },
     {
-      id: "talkflow",
-      title: "TalkFlow",
-      category: "Real-Time Communication",
+      id: "quickchat",
+      title: "QuickChat",
+      category: "Real-Time Chat Application",
       description:
-        "A sophisticated multilingual chat application using Socket.IO for instant messaging, powered by an AI backend for seamless, real-time language translation.",
-      technologies: ["Socket.IO", "React", "Node.js", "AI Translation"],
-      liveLink: "https://github.com/aryanverma2601/TalkFlow",
-      codeLink: "https://github.com/aryanverma2601/TalkFlow",
-      // Keep linear gradients for other projects
-      image: "linear-gradient(135deg, #d946ef 0%, #ec4899 100%)",
+        "A MERN stack chat application with Socket.IO-powered real-time messaging, JWT authentication, online user presence, unseen message counts, profile updates, and image sharing through Cloudinary.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Socket.IO",
+        "Cloudinary",
+      ],
+      liveLink:
+        "https://quick-chat-client-5x7bqct25-aryanv380-gmailcoms-projects.vercel.app/login",
+      codeLink: "https://github.com/aryanverma2601/QuickChat",
+      image: quickChatImage,
     },
     {
-      id: "writenest",
-      title: "WriteNest",
-      category: "AI Content Platform",
+      id: "parkease",
+      title: "ParkEase",
+      category: "Smart Parking Platform",
       description:
-        "An intelligent blogging platform that leverages generative AI for content creation and assistance, with a personalized feed algorithm to enhance user engagement.",
-      technologies: ["AI APIs", "MERN Stack", "Machine Learning"],
-      liveLink: "https://github.com/aryanverma2601/WriteNest",
-      codeLink: "https://github.com/aryanverma2601/WriteNest",
-      image: "linear-gradient(135deg, #a78bfa 0%, #c084fc 100%)",
+        "A full-stack smart parking management platform with Angular, Spring Boot microservices, JWT authentication, real-time spot availability, bookings, payments, and role-based dashboards for drivers, managers, and admins.",
+      technologies: [
+        "Angular",
+        "Spring Boot",
+        "Java",
+        "MySQL",
+        "RabbitMQ",
+        "Eureka",
+      ],
+      liveLink: "https://github.com/aryanverma2601/Parkease",
+      codeLink: "https://github.com/aryanverma2601/Parkease",
+      image: parkEaseImage,
+    },
+    {
+      id: "spam-classifier",
+      title: "Email/SMS Spam Classifier",
+      category: "Machine Learning",
+      description:
+        "An NLP text classification pipeline that detects spam and ham messages using TF-IDF vectorization and Multinomial Naive Bayes, reaching 97.10% accuracy and 100% precision with a Streamlit app for real-time predictions.",
+      technologies: [
+        "Python",
+        "scikit-learn",
+        "NLTK",
+        "TF-IDF",
+        "Naive Bayes",
+        "Streamlit",
+      ],
+      liveLink: "https://github.com/aryanverma2601/Email-sms_Spam_Classifier",
+      codeLink: "https://github.com/aryanverma2601/Email-sms_Spam_Classifier",
+      image: spamClassifierImage,
     },
   ];
 
@@ -307,11 +347,11 @@ const Projects = ({ isVisible, setRef }) => {
 // ========= ABOUT & SKILLS COMPONENT (UNCHANGED) =========
 const About = ({ isVisible, setRef }) => {
   const skills = [
-    { name: "React & Modern JavaScript", level: 95, category: "Frontend" },
-    { name: "Node.js & Express", level: 90, category: "Backend" },
-    { name: "MongoDB & Database Design", level: 88, category: "Database" },
-    { name: "AWS & Cloud Services", level: 82, category: "DevOps" },
-    { name: "Docker & Containerization", level: 85, category: "DevOps" },
+    { name: "Java, Spring Boot & Microservices", level: 92, category: "Backend" },
+    { name: "React, Angular & TypeScript", level: 90, category: "Frontend" },
+    { name: "Node.js, Express & REST APIs", level: 88, category: "Backend" },
+    { name: "MySQL, MongoDB, JWT & RabbitMQ", level: 86, category: "Systems" },
+    { name: "AWS, Docker, ECS & CI/CD", level: 84, category: "DevOps" },
   ];
 
   return (
@@ -332,15 +372,16 @@ const About = ({ isVisible, setRef }) => {
             </h2>
             <div className="space-y-6 text-lg text-slate-400 leading-relaxed font-light">
               <p>
-                I'm a Computer Science student at GLA University with a passion
-                for creating scalable, user-centric applications. My work spans
-                full-stack development, cloud architecture, and emerging
-                technologies.
+                I'm a Computer Science Engineering student at GLA University
+                and a Software Engineer Trainee at Capgemini through BridgeLabz,
+                focused on building scalable APIs, microservices, and polished
+                full-stack applications.
               </p>
               <p>
-                With experience in modern frameworks and cloud platforms, I
-                focus on building solutions that are not only functional but
-                also maintainable and performant at scale.
+                My work spans Java 17, Spring Boot, React, Angular, Node.js,
+                MySQL, MongoDB, RabbitMQ, Docker, and AWS. I enjoy turning
+                product problems into reliable systems with clean architecture,
+                real-time features, and measurable user impact.
               </p>
             </div>
           </div>
@@ -392,21 +433,27 @@ const Credentials = ({ isVisible, setRef }) => {
   const achievements = [
     {
       icon: <FiAward />,
+      title: "Software Engineer Trainee",
+      detail:
+        "Training with Capgemini via BridgeLabz, building Java 17 and Spring Boot REST APIs with Spring Data JPA, MySQL, JUnit 5, Mockito, Git, and layered architecture.",
+    },
+    {
+      icon: <FiAward />,
       title: "Smart India Hackathon 2024",
       detail:
-        "Selected in the Top 30 for our university's internal round, competing in a high-pressure 24-hour innovation challenge from ideation to prototype.",
+        "Recognized in the Top 30 nationally for problem-solving, system design, and cross-functional execution.",
     },
     {
       icon: <FiCode />,
       title: "Competitive Programming",
       detail:
-        "Solved over 500+ problems across platforms like LeetCode and CodeChef, honing skills in algorithms and data structures. Achieved a peak rating of 1431 on LeetCode.",
+        "Solved 600+ problems across graphs, dynamic programming, trees, and binary search, with ratings of 1480 on LeetCode and 1310 on CodeChef.",
     },
     {
       icon: <FiCloud />,
       title: "AWS Cloud Training",
       detail:
-        "Completed a comprehensive training program covering core AWS services, cloud architecture, and best practices, earning a certificate of completion.",
+        "Certified through Jovac on EC2, S3, ECS, and IAM, with hands-on cloud deployment experience.",
     },
   ];
 
@@ -481,7 +528,9 @@ const CTA = ({ isVisible, setRef }) => {
           connect and turn your ideas into reality.
         </p>
         <a
-          href="mailto:aryanv380@gmail.com"
+          href={gmailComposeLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group inline-flex items-center px-8 py-4 bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition-all duration-300 rounded-full font-medium transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25"
         >
           <span className="mr-2 text-lg">Get in Touch</span>

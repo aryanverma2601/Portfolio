@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import quickChatImage from "../assets/quickchat.png";
+import parkEaseImage from "../assets/parkease.png";
+import spamClassifierImage from "../assets/email-spam-classifier.png";
 // Using react-icons for a wider, more consistent icon set
 import {
   FiGithub,
@@ -9,6 +12,9 @@ import {
   FiArrowRight,
   FiExternalLink,
 } from "react-icons/fi";
+
+const gmailComposeLink =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=aryanv380@gmail.com&su=Portfolio%20Inquiry&body=Hi%20Aryan%2C%0A%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20connect.";
 
 const Portfolio = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -63,55 +69,53 @@ const Portfolio = () => {
       image: "linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)",
     },
     {
-      id: "talkflow",
-      title: "TalkFlow",
-      category: "Real-Time Communication",
+      id: "quickchat",
+      title: "QuickChat",
+      category: "Real-Time Chat Application",
       description:
-        "Sophisticated multilingual chat application with AI-powered translation. Built with Socket.IO for instant messaging and dynamic language processing capabilities.",
-      technologies: ["Socket.IO", "React", "Node.js", "AI Translation"],
-      metrics: { languages: "50+", latency: "< 50ms", concurrent: "10K+" },
+        "MERN stack chat application with Socket.IO messaging, JWT authentication, online presence, unseen message counts, profile updates, and Cloudinary image sharing.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
+      metrics: { realtime: "Socket.IO", auth: "JWT", media: "Cloudinary" },
+      liveLink:
+        "https://quick-chat-client-5x7bqct25-aryanv380-gmailcoms-projects.vercel.app/login",
+      codeLink: "https://github.com/aryanverma2601/QuickChat",
       year: "2025",
-      image: "linear-gradient(135deg, #d946ef 0%, #ec4899 100%)",
+      image: quickChatImage,
     },
     {
-      id: "writenest",
-      title: "WriteNest",
-      category: "AI Content Platform",
+      id: "parkease",
+      title: "ParkEase",
+      category: "Smart Parking Platform",
       description:
-        "Intelligent blogging platform leveraging generative AI for content creation. Features personalized algorithms and comprehensive content management systems.",
-      technologies: ["AI APIs", "MERN Stack", "Machine Learning"],
-      metrics: { content: "10K+", engagement: "85%", generation: "< 3s" },
+        "Full-stack parking management platform with Angular, Spring Boot microservices, JWT auth, real-time spot availability, bookings, payments, and role-based dashboards.",
+      technologies: ["Angular", "Spring Boot", "Java", "MySQL", "RabbitMQ"],
+      metrics: { roles: "3", services: "9", gateway: "8080" },
+      liveLink: "https://github.com/aryanverma2601/Parkease",
+      codeLink: "https://github.com/aryanverma2601/Parkease",
       year: "2025",
-      image: "linear-gradient(135deg, #a78bfa 0%, #c084fc 100%)",
+      image: parkEaseImage,
+    },
+    {
+      id: "spam-classifier",
+      title: "Email/SMS Spam Classifier",
+      category: "Machine Learning",
+      description:
+        "NLP classifier for spam and ham detection using TF-IDF features and Multinomial Naive Bayes, with a Streamlit app for real-time message classification.",
+      technologies: ["Python", "scikit-learn", "NLTK", "TF-IDF", "Streamlit"],
+      metrics: { accuracy: "97.10%", precision: "100%", app: "Streamlit" },
+      liveLink: "https://github.com/aryanverma2601/Email-sms_Spam_Classifier",
+      codeLink: "https://github.com/aryanverma2601/Email-sms_Spam_Classifier",
+      year: "2025",
+      image: spamClassifierImage,
     },
   ];
 
   const skills = [
-    { name: "React & Modern JavaScript", level: 95, category: "Frontend" },
-    { name: "Node.js & Express", level: 90, category: "Backend" },
-    { name: "MongoDB & Database Design", level: 88, category: "Database" },
-    { name: "AWS & Cloud Architecture", level: 82, category: "DevOps" },
-    { name: "Docker & Containerization", level: 85, category: "DevOps" },
-    { name: "System Design", level: 80, category: "Architecture" },
-  ];
-
-  const achievements = [
-    {
-      title: "Smart India Hackathon",
-      detail: "Top 30 National Selection",
-      year: "2024",
-    },
-    {
-      title: "Competitive Programming",
-      detail: "500+ Problems Solved",
-      metric: "LeetCode 1431",
-    },
-    { title: "AWS Certification", detail: "Cloud Architecture", year: "2024" },
-    {
-      title: "Open Source",
-      detail: "Multiple Contributions",
-      metric: "GitHub",
-    },
+    { name: "Java, Spring Boot & Microservices", level: 92, category: "Backend" },
+    { name: "React, Angular & TypeScript", level: 90, category: "Frontend" },
+    { name: "Node.js, Express & REST APIs", level: 88, category: "Backend" },
+    { name: "MySQL, MongoDB, JWT & RabbitMQ", level: 86, category: "Systems" },
+    { name: "AWS, Docker, ECS & CI/CD", level: 84, category: "DevOps" },
   ];
 
   const setRef = (id, el) => {
@@ -178,15 +182,19 @@ const Portfolio = () => {
 
               <div className="flex items-center space-x-6">
                 <a
-                  href="mailto:aryanv380@gmail.com"
+                  href={gmailComposeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center px-8 py-4 bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition-all duration-300 rounded-full font-medium transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25"
                 >
                   <span className="mr-2">Let's work together</span>
                   <FiArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                 </a>
                 <div className="flex items-center space-x-2">
-                  <a
-                    href="mailto:aryanv380@gmail.com"
+                <a
+                    href={gmailComposeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-3 bg-slate-800/50 hover:bg-slate-800/80 rounded-full transition-all duration-300 hover:scale-110 group border border-slate-700/50"
                   >
                     <FiMail className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300" />
@@ -289,7 +297,9 @@ const Portfolio = () => {
                     </div>
 
                     <a
-                      href="#"
+                      href={project.liveLink || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group inline-flex items-center text-slate-50 hover:text-cyan-400 transition-all duration-300 transform"
                     >
                       <span className="mr-2 font-medium">View Project</span>
@@ -300,10 +310,18 @@ const Portfolio = () => {
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                     <div className="relative group">
                       <div className="aspect-[4/3] rounded-2xl transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-2xl group-hover:shadow-black/50 overflow-hidden">
-                        <div
-                          className="absolute inset-0"
-                          style={{ background: project.image }}
-                        />
+                        {project.image.includes("linear-gradient") ? (
+                          <div
+                            className="absolute inset-0"
+                            style={{ background: project.image }}
+                          />
+                        ) : (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
                         {/* Subtle noise pattern for texture */}
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20800%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M-100%20500h1000v1M-100%20498h1000v1M-100%20496h1000v1%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-5" />
                       </div>
@@ -334,15 +352,16 @@ const Portfolio = () => {
               </h2>
               <div className="space-y-6 text-lg text-slate-400 leading-relaxed font-light">
                 <p>
-                  I'm a Computer Science student at GLA University with a
-                  passion for creating scalable, user-centric applications. My
-                  work spans full-stack development, cloud architecture, and
-                  emerging technologies.
+                  I'm a Computer Science Engineering student at GLA University
+                  and a Software Engineer Trainee at Capgemini through
+                  BridgeLabz, focused on building scalable APIs, microservices,
+                  and polished full-stack applications.
                 </p>
                 <p>
-                  With experience in modern frameworks and cloud platforms, I
-                  focus on building solutions that are not only functional but
-                  also maintainable and performant at scale.
+                  My work spans Java 17, Spring Boot, React, Angular, Node.js,
+                  MySQL, MongoDB, RabbitMQ, Docker, and AWS. I enjoy turning
+                  product problems into reliable systems with clean
+                  architecture, real-time features, and measurable user impact.
                 </p>
                 <p>
                   Currently based in Mathura, India, I'm always interested in
